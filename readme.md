@@ -1,19 +1,20 @@
 # Docker WordPress Environment
 
-Services
+This is a basic **Docker Wordpress Environment** focused on development of **plugins and themes**, supports [WP-CLI](https://wp-cli.org/) and [phpMyAdmin](https://www.phpmyadmin.net/).
+
+Clone this repository, then run `docker-compose up -d`
+
+## Services
 
 - db 
-image: mysql:5.7
+The mysql
 
 - phpmyadmin
-image: phpmyadmin/phpmyadmin:latest
 
 - wordpress
-image: wordpress oficial
+Uses the official WordPress docker image
 
 - wpcli
-image: wordpress:cli
-
 The **wpcli container** was added in order to only run one-off commands. Don’t need it to run as a service, only as a cli tool, for that run:
 
 `docker-compose run --rm wpcli command`
