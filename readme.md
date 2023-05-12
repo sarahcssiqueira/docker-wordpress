@@ -1,9 +1,14 @@
 # Docker WordPress Environment
 
-This is a basic **Docker WordPress Environment** focused on the development of **plugins and themes**, supports [WP-CLI](https://wp-cli.org/) and [phpMyAdmin](https://www.phpmyadmin.net/).
+This is a basic **Docker WordPress Environment** focused on the development of **plugins and themes** (see volumes),  supports [WP-CLI](https://wp-cli.org/) and [phpMyAdmin](https://www.phpmyadmin.net/).
 
+> **Disclaimer:** This project is meant to be used for development purposes only. It's **not** meant to be used in production.
 
-Clone this repository or download it through PHP Composer. To add through composer, add this repository to your folder composer.json file:
+> It's work in progress. Feel free to contribute if you have anything useful to add.
+
+---
+
+Clone this repository to your machine or download it through PHP Composer. To add through composer, add this code to your *composer.json* file in the root folder:
 
 ```
 "repositories": [
@@ -13,7 +18,7 @@ Clone this repository or download it through PHP Composer. To add through compos
 ]
 ```
 
-Then run `composer require docker-env-template/wordpress-with-wp-cli`. This repository will be downloaded inside the vendor folder. 
+Then run `composer require docker-env-template/wordpress-with-wp-cli`. This repository will be downloaded inside the vendor folder. Move it to the root. 
 
 Run `docker-compose up -d` to start your project.
 
@@ -24,6 +29,8 @@ Run `docker-compose up -d` to start your project.
 The MYSQL official image
 
 - phpMyAdmin
+
+Intended to handle the administration of MySQL, in this case through [localhost:8080/](localhost:8080/).
 
 - WordPress
 
