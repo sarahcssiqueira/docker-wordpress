@@ -1,18 +1,21 @@
 {
-    "name": "docker-env-template/wordpress-with-wp-cli",
-    "description": "Basic Docker Wordpress Environment focused on development of plugins and themes, supports WP-CLI and phpMyAdmin",
-    "homepage": "https://github.com/sarahcssiqueira/docker-wordpress-with-wp-cli",
-    "license": "MIT",
-    "keywords": [ "wordpress" , "docker-environment"],
-    "authors": [
-      {
-        "name": "Sarah Siqueira",
-        "email": "sarahcosiqueira@gmail.com",
-        "homepage": "https://sarahjobs.com/"
-      }
-    ],
-    "type": "project",
-    "require": {
-      "php": ">=7.1.3"
+  "name": "docker-env-template/wp-wp-cli",
+  "description": "Docker WordPress Dev Environment, supports WP-CLI and phpMyAdmin",
+  "homepage": "https://github.com/sarahcssiqueira/docker-wordpress-with-wp-cli",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "docker-environment"
+  ],
+  "authors": [
+    {
+      "name": "Sarah Siqueira",
+      "email": "sarahcosiqueira@gmail.com",
+      "homepage": "https://sarahjobs.com/"
     }
+  ],
+  "type": "project",
+  "require": {
+    "php": ">=7.1.3"
   }
+}
