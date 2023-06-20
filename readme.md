@@ -2,6 +2,8 @@
 
 This is a basic **Docker WordPress Environment** focused on the development of **plugins and themes**, supports [WP-CLI](https://wp-cli.org/) and [phpMyAdmin](https://www.phpmyadmin.net/).
 
+---
+
 > **Disclaimer:** This project is meant to be used for development purposes only. It's **not** meant to be used in production.
 
 > It's work in progress. Feel free to contribute if you have anything useful to add.
@@ -10,7 +12,7 @@ This is a basic **Docker WordPress Environment** focused on the development of *
 
 ## Usage
 
-Clone this repository, then run run `docker-compose up -d` to start your project.
+Clone this repository, then cd the **docker folder** and run `docker-compose up -d` to start your project.
 
 ## Services
 
