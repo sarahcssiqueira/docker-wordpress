@@ -3,7 +3,6 @@ version: '3.9'
 services:
 
   db:
-
     image: mysql:5.7
     restart: always
     environment:
@@ -14,10 +13,7 @@ services:
     volumes:
       - ../db:/var/lib/mysql
     
-
-  
   phpmyadmin:
-
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     depends_on:
@@ -29,10 +25,7 @@ services:
       PMA_USER: ${MYSQL_USER}
       PMA_PASSWORD: ${MYSQL_PASSWORD}
 
-
-
   wordpress:
-
     build: .
     restart: always
     depends_on:
@@ -40,19 +33,18 @@ services:
     ports:
       - ${WORDPRESS_PORT}:80
     environment:
+      PHP_EXTENSION_XDEBUG: 1
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE_NAME}
     volumes:
+      - ../wp-core:/var/www/html/
       - ../plugins:/var/www/html/wp-content/plugins
       - ../themes:/var/www/html/wp-content/themes
-
-
-
+      - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
 
   wpcli:
-
     image: wordpress:cli
     depends_on:
       - wordpress
@@ -66,4 +58,4 @@ services:
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE_NAME}
     user: xfs
     entrypoint: wp
-    command: bash -c '--info'
+    command: --info

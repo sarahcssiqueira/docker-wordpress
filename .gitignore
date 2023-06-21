@@ -1,4 +1,5 @@
 # Ignore this folders
 /db
+/wp-core
 /themes
 /plugins
