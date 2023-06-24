@@ -1,16 +1,6 @@
 # Docker WordPress Environment
 
 This is a basic **Docker WordPress Environment** focused on the development of **plugins and themes**, supports [WP-CLI](https://wp-cli.org/), [phpMyAdmin](https://www.phpmyadmin.net/) and [Xdebug](https://xdebug.org/).
-This is a basic **Docker WordPress Environment** focused on the development of **plugins and themes**, supports [WP-CLI](https://wp-cli.org/), [phpMyAdmin](https://www.phpmyadmin.net/) and [Xdebug](https://xdebug.org/).
-
-## Table of Contents
-
-- [Introduction](#docker-wordpress-environment)
-  - [Services](#services)
-- [Requirements](#requirements)
-- [Usage](#usage)
-  - [Variables](#variables)
-- [Contributing and Support](#contributing-and-support)
 
 ## Table of Contents
 
@@ -59,25 +49,31 @@ The **wpcli container** was added to only run one-off commands. Don’t need it 
 
 ## Usage
 
-Clone this repository, then cd the **docker folder** and run `docker-compose up -d` to start your project.
+Clone this repository `git clone https://github.com/sarahcssiqueira/docker-wordpress`
+then cd the **docker folder** `cd docker` and set up your chosen variables on the .env file.
 
-## Services
+### Variables
 
-- **db**
+The variables used for WordPress installation are the following ones, you can use the same or change them, it's up to you.
 
-The MYSQL official image.
+```
+MYSQL_DATABASE_NAME=exampledatabase
+MYSQL_USER=exampleuser
+MYSQL_PASSWORD=examplepass
+WORDPRESS_PORT=8000
+```
 
-- **phpMyAdmin**
+---
 
-Intended to handle the administration of MySQL, in this case through port 80, on browser [localhost:8080/](localhost:8080/).
+> WARNING: DO NOT store your variables on a .env file if it's not a local development environment, for other cases, the appropriate method is to add the .env file to a .gitignore and store the variables as [encrypted secrets.](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 
-- **WordPress**
+---
 
-Uses the official WordPress latest docker image.
+After setting your variables, run `docker-compose up -d` to start the docker.
 
-- **WP-CLI**
+When docker finished their work (which can take a few minutes the first time, depending on your connection and machine) by opening your browser through http://localhost:8000, you should see the WordPress default installation screen.
 
-The **wpcli container** was added to only run one-off commands. Don’t need it to run as a service, only as a cli tool, for that run:
+Finish WordPress installation and in your terminal, cd the root project folder again type `cd ..` to start working on your plugins and/or themes.
 
 For using wp-cli, use `docker-compose run --rm wpcli command` as it was added to only run one-off commands
 
