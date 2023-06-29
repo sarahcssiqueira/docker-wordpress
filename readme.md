@@ -11,6 +11,7 @@ This is a basic **Docker WordPress Environment** focused on the development of *
   - [Variables](#variables)
   - [WordPress Debug](#debug)
   - [Xdebug for VSCode](#xdebug)
+  - [Coding Standards](#coding-standards)
 - [Contributing and Support](#contributing-and-support)
 
 ---
@@ -46,6 +47,7 @@ The **wpcli container** was added to only run one-off commands. Don’t need it 
 - [Docker](https://www.docker.com/) hub
 - [Xdebug](https://xdebug.org/docs/install)
 - [PHP Debug Extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
+- [phpcs](https://github.com/sarahcssiqueira/docker-wordpress/blob/master/.vscode/settings.json)
 
 ## Usage
 
@@ -112,6 +114,36 @@ Xdebug is enabled and configured to work on VSCode using the extension PHP Debug
   "/var/www/html": "${workspaceFolder}",
 }
 ```
+
+### Coding Standards
+
+To use [WordPress Coding Standards ](https://github.com/WordPress/WordPress-Coding-Standards), run:
+
+`composer install`
+
+Composer will download the dependencies to vendor folder, run:
+
+`./vendor/bin/phpcs -i`
+
+The expected output:
+
+_The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz and Zend_
+
+To tell code sniffer about the WordPress Coding Standards run:
+
+`./vendor/bin/phpcs --config-set installed_paths {PATH}/vendor/wp-coding-standards/wpcs`
+
+Replace PATH
+
+Run `./vendor/bin/phpcs -i` and the expected output this time should be:
+
+_The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz, Zend, WordPress, WordPress-Core, WordPress-Docs and WordPress-Extra_
+
+This way, WordPress coding standards are available for all plugins and themes you work inside this Docker.
+
+#### Extension for VS Code
+
+I am using [phpcs](https://marketplace.visualstudio.com/items?itemName=shevaua.phpcs). Other IDEs or extensions, change the [settings.json](https://github.com/sarahcssiqueira/docker-wordpress/blob/master/.vscode/settings.json) accordingly.
 
 # Contributing and Support
 

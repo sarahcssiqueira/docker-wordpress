@@ -1,0 +1,9 @@
+{
+    "phpcs.enable": true,
+    "phpcs.lintOnSave": true,
+    "phpcs.showSources": false,
+    "phpcs.standard": "WordPress",
+    "phpcs.ignorePatterns": [
+        "*/vendor/*"
+    ],
+}
