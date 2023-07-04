@@ -1,3 +1,5 @@
+# Docker WordPress Environment
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -14,18 +16,18 @@ This is a **Docker WordPress Environment** focused on the development of **WordP
 
 - [Introduction](#docker-wordpress-environment)
 - [Requirements](#requirements)
-- [Docker](##docker)
-- [Folders Structure](###folders-structure)
-- [Containers](###containers)
-- [Basic Usage](##basic-usage)
-  - [Set variables](###variables)
-  - [Starting Docker](###starting-docker)
-- [More Tools](##more-tools)
-  - [Set debugging in WordPress](###set-debugging-in-wordPress)
-  - [Xdebug for VSCode](###xdebug)
-  - [Set WordPress Coding Standards](###set-wordpress-coding-standards)
-  - [Using WordPress Coding Standards](###using-wordpress-coding-standards)
-- [Contributing and Support](##contributing-and-support)
+- [Docker](#docker)
+- [Folders Structure](#folders-structure)
+- [Containers](#containers)
+- [Basic Usage](#basic-usage)
+  - [Set variables](#variables)
+  - [Starting Docker](#starting-docker)
+- [More Tools](#more-tools)
+  - [Set debugging in WordPress](#set-debugging-in-wordPress)
+  - [Xdebug for VSCode](#xdebug)
+  - [Set WordPress Coding Standards](#set-wordpress-coding-standards)
+  - [Using WordPress Coding Standards](#using-wordpress-coding-standards)
+- [Contributing and Support](#contributing-and-support)
 
 ## Requirements
 
