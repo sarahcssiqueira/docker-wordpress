@@ -1,8 +1,9 @@
 # Docker WordPress Environment
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release Version](https://img.shields.io/github/release/sarahcssiqueira/docker-wordpress.svg)](https://github.com/sarahcssiqueira/docker-wordpress/releases/latest)
+[![Support Level](https://img.shields.io/badge/support-may_take_time-yellow.svg)](#support-level)
 
 This is a **Docker WordPress Environment** focused on the development of **WordPress plugins and themes**, supports [WP-CLI](https://wp-cli.org/), [phpMyAdmin](https://www.phpmyadmin.net/), [Xdebug](https://xdebug.org/) and [WordPress Coding Standards - WPCS](https://github.com/WordPress/WordPress-Coding-Standards).
 
@@ -24,7 +25,7 @@ This is a **Docker WordPress Environment** focused on the development of **WordP
   - [Starting Docker](#starting-docker)
 - [More Tools](#more-tools)
   - [Set debugging in WordPress](#set-debugging-in-wordPress)
-  - [Xdebug for VSCode](#xdebug)
+  - [Xdebug for VSCode](#xdebug-for-vscode)
   - [Set WordPress Coding Standards](#set-wordpress-coding-standards)
   - [Using WordPress Coding Standards](#using-wordpress-coding-standards)
 - [Contributing and Support](#contributing-and-support)
@@ -33,8 +34,8 @@ This is a **Docker WordPress Environment** focused on the development of **WordP
 
 - [Docker](https://www.docker.com/)
 - [VS Code](https://code.visualstudio.com/)
-  - VS Code Extension: [PHP Debug Extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
-  - VS Code Extension: [phpcs](https://github.com/sarahcssiqueira/docker-wordpress/blob/master/.vscode/settings.json)
+  - [PHP Debug Extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
+  - [phpcs](https://github.com/sarahcssiqueira/docker-wordpress/blob/master/.vscode/settings.json)
 - [Composer](https://getcomposer.org/)
 - [Xdebug](https://xdebug.org/docs/install)
 
@@ -62,12 +63,12 @@ Docker containers used on [docker-compose. yml](https://github.com/sarahcssiquei
 - WordPress: Uses the official WordPress latest docker image.
 - WP-CLI: The **wpcli container** was added to only run one-off commands. Don’t need it to run as a service, only as a cli tool, for that run `docker-compose run --rm wpcli command`
 - db: The MYSQL official image.
-- phpMyAdmin: Intended to handle the administration of MySQL, in this case through port 80, on browser [localhost:8080/](localhost:8080/).
+- phpMyAdmin: Intended to handle the administration of MySQL, in this case through port 80, on browser [localhost:8080](localhost:8080).
 
 ## Basic usage
 
-Clone (or download) this repository `git clone https://github.com/sarahcssiqueira/docker-wordpress`.
-Go to the /docker folder and set up your chosen variables on the .env file.
+Clone (or download) this repository `git clone https://github.com/sarahcssiqueira/docker-wordpress` or download one of the [latest releases](https://github.com/sarahcssiqueira/docker-wordpress/releases).
+Go to the `/docker` folder and set up your chosen variables on the .env file.
 
 ### Set variables
 
@@ -77,7 +78,6 @@ The variables used for WordPress installation are the following ones, you can us
 MYSQL_DATABASE_NAME=exampledatabase
 MYSQL_USER=exampleuser
 MYSQL_PASSWORD=examplepass
-WORDPRESS_PORT=8000
 ```
 
 ---
