@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress">
+	<description>WordPress Coding Standards for project plugins and themes.</description>
+	<rule ref="WordPress"/>
+	<file>plugins</file>
+	<file>themes</file>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+</ruleset>

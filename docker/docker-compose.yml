@@ -1,7 +1,7 @@
 services:
 
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE_NAME}
@@ -12,7 +12,7 @@ services:
       - ../db:/var/lib/mysql
     
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:5.2.2
     restart: always
     depends_on:
       - db
@@ -24,18 +24,28 @@ services:
       PMA_PASSWORD: ${MYSQL_PASSWORD}
 
   wordpress:
-    build: .
+    build:
+      context: .
+      args:
+        WORDPRESS_VERSION: ${WORDPRESS_VERSION}
+        PHP_VERSION: ${PHP_VERSION}
     restart: always
     depends_on:
       - db
     ports:
       - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      PHP_EXTENSION_XDEBUG: 1
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE_NAME}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-1}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_DEBUG_LOG', true );
+        define( 'WP_DEBUG_DISPLAY', true );
+      XDEBUG_MODE: ${XDEBUG_MODE:-off}
     volumes:
       - ../wp-core:/var/www/html/
       - ../plugins:/var/www/html/wp-content/plugins
@@ -43,7 +53,7 @@ services:
       - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
 
   wpcli:
-    image: wordpress:cli
+    image: wordpress:cli-php${PHP_VERSION}
     depends_on:
       - wordpress
       - db
